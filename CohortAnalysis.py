@@ -62,7 +62,7 @@ cohort_table = cohort_data.pivot(index='Cohort Month', columns = ['CohortIndex']
 
 #%%
 #change index
-#cohort_table.index = cohort_table.index.strftime('%B %Y') 
+cohort_table.index = cohort_table.index.strftime('%B %Y') 
 
 #Visualize our results
 plt.figure(figsize=(21,10))
@@ -74,4 +74,5 @@ new_cohort_table = cohort_table.divide(cohort_table.iloc[:,0],axis=0)
 
 
 plt.figure(figsize=(21,10))
-sns.heatmap(new_cohort_table,annot=True,cmap='magma',fmt='.0%')
+fig = sns.heatmap(new_cohort_table,annot=True,cmap='magma',fmt='.0%')
+#fig.figure.savefig("CohortHeatMap.png")
